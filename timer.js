@@ -13,7 +13,7 @@ class Timer {
   }
 
   start = () => {
-    this.onStart ? this.onStart() : false;
+    this.onStart ? this.onStart(this.timeRemaining) : false;
     this.tick();
     this.interval = setInterval(this.tick, 50);
   };
@@ -27,7 +27,7 @@ class Timer {
       this.onComplete ? this.onComplete() : false;
     } else {
       this.timeRemaining = this.timeRemaining - 0.05;
-      this.onTick ? this.onTick() : false;
+      this.onTick ? this.onTick(this.timeRemaining) : false;
     }
   };
 
